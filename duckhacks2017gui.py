@@ -4,10 +4,14 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 import subprocess as sp
+import json
 from functools import partial
 
 def launch_the_memes(args):
     sp.call(["ng serve"], shell=True)
+    with open("state.json", "w") as state_file:
+        state = { "initialize" : "true" }
+        json.dump(state,state_file)
 
 class DuckhacksApp(App):
     def build(self):
