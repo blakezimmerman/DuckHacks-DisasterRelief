@@ -7,7 +7,7 @@ import subprocess as sp
 from functools import partial
 
 def launch_the_memes(args):
-    sp.call(["ngserb"], shell=True)
+    sp.call(["ng serve"], shell=True)
 
 class DuckhacksApp(App):
     def build(self):
