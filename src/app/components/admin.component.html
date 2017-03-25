@@ -1,0 +1,20 @@
+<h1>
+  {{title}}
+</h1>
+<div id="contactInfo">
+  <legend>{{contactInfoTitle}}</legend>
+  <label>Name</label>
+  <input [(ngModel)]="nameVal">
+  <label>Phone Number</label>
+  <input [(ngModel)]="phoneNumVal">
+  <label>Email</label>
+  <input [(ngModel)]="emailVal">
+</div>
+<div id="personnelManagement">
+</div>
+<div id="personCheckIn">
+</div>
+<button 
+  id="sendBound" (click)="sendBoundVariables()">Update Website
+</button>
+
