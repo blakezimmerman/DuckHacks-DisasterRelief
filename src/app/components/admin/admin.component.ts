@@ -10,11 +10,18 @@ import { ActivatedRoute } from "@angular/router";
 export class AdminComponent {
 
   constructor(private route: ActivatedRoute) {}
+
+  // Misc attributes
   title = 'Management Page';
+
+  // Activation attributes
+  boolContacts = 1
+  boolAdvisories = 1
+  boolLocations = 1
 
   // Contact attributes
   nameVal = "";
-  emailVal ="";
+  emailVal = "";
   phoneNumVal = "";
 
   // Location attributes
@@ -73,6 +80,31 @@ export class AdminComponent {
     console.log(this.contacts);
     console.log(this.advisories);
   }
+
+  toggleLocations(){
+    if(this.boolLocations == 1){
+      this.boolLocations = 0;
+    }else{
+      this.boolLocations = 1;
+    }
+  }
+
+  toggleContacts(){
+    if(this.boolContacts == 1){
+      this.boolContacts = 0;
+    }else{
+      this.boolContacts = 1;
+    }
+  }
+
+  toggleAdvisories(){
+    if(this.boolAdvisories == 1){
+      this.boolAdvisories = 0;
+    }else{
+      this.boolAdvisories = 1;
+    }
+  }
+
 }
 
 /*
