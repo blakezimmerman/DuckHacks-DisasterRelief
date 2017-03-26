@@ -17,11 +17,15 @@
             <th>Name</th>
             <th>Phone</th>
             <th>Email</th>
+            <th>Remove</th>
           </tr>
           <tr *ngFor="let c of contacts">
             <td>{{ c.name }}</td>
             <td>{{ c.phone }}</td>
             <td>{{ c.email }}</td>
+            <td>
+              <span (click)="removeContact(c)" class="glyphicon glyphicon-minus"></span>
+            </td>
           </tr>
         </table>
         <div type="button"  data-toggle="collapse" data-target="#contactForm">
@@ -29,18 +33,24 @@
         </div>
         <div class="collapse" id="contactForm">
           <ul style="list-style-type: none">
-            <li>
-              <label>Name/Organization: </label>
-              <input [(ngModel)]="nameVal">
-            </li>
-            <li>
-              <label>Phone Number: </label>
-              <input [(ngModel)]="phoneNumVal">
-            </li>
-            <li>
-              <label>Email: </label>
-              <input [(ngModel)]="emailVal">
-            </li>
+            <div class="row">
+              <li>
+                <label>Name/Organization: </label>
+                <input [(ngModel)]="nameVal">
+              </li>
+            </div>
+            <div class="row">
+              <li>
+                <label>Phone Number: </label>
+                <input [(ngModel)]="phoneNumVal">
+              </li>
+            </div>
+            <div class="row">
+              <li>
+                <label>Email: </label>
+                <input [(ngModel)]="emailVal">
+              </li>
+            </div>
           </ul>
           <button class="btn btn-md btn-primary"
                   id="addContactInfo" 
@@ -64,9 +74,13 @@
         <table class="table table-hover">
           <tr>
             <th>Description</th>
+            <th>Remove</th>
           </tr>
           <tr *ngFor="let adv of advisories">
             <td>{{ adv.desc }}</td>
+            <td>
+              <span (click)="removeAdvisory(adv)" class="glyphicon glyphicon-minus"></span>
+            </td>
           </tr>
         </table>
         <div type="button" data-toggle="collapse" data-target="#advisoryForm">
@@ -74,10 +88,12 @@
         </div>
         <div class="collapse" id="advisoryForm">
           <ul style="list-style-type: none">
-            <li>
-              <label>Message: </label>
-              <input [(ngModel)]="advisoryDescVal">
-            </li>
+            <div class="row">
+              <li>
+                <label>Message: </label>
+                <input [(ngModel)]="advisoryDescVal">
+              </li>
+            </div>
           </ul>
           <button id="addAdvisory" 
                   class="btn btn-md btn-primary" 
@@ -103,11 +119,15 @@
             <th>Name</th>
             <th>Address</th>
             <th>Description</th>
+            <th>Remove</th>
           </tr>
           <tr *ngFor="let loc of locations">
             <td>{{ loc.name }}</td>
             <td>{{ loc.address }}</td>
             <td>{{ loc.desc }}</td>
+            <td>
+              <span (click)="removeLocation(loc)" class="glyphicon glyphicon-minus"></span>
+            </td>
           </tr>
         </table>
         <div type="button" data-toggle="collapse" data-target="#locationForm">
@@ -115,18 +135,24 @@
         </div>
         <div class="collapse" id="locationForm">
           <ul style="list-style-type: none">
-            <li>
-              <label>Name: </label>
-              <input [(ngModel)]="locNameVal">
-            </li>
-            <li>
-              <label>Address: </label>
-              <input [(ngModel)]="locAddressVal">
-            </li>
-            <li>
-              <label>Description: </label>
-              <input [(ngModel)]="locDescVal">
-            </li>
+            <div class="row">
+              <li>
+                <label>Name: </label>
+                <input [(ngModel)]="locNameVal">
+              </li>
+            </div>
+            <div class="row">
+              <li>
+                <label>Address: </label>
+                <input [(ngModel)]="locAddressVal">
+              </li>
+            </div>
+            <div class="row">
+              <li>
+                <label>Description: </label>
+                <input [(ngModel)]="locDescVal">
+              </li>
+            </div>
           </ul>
           <button id="addLocation" 
                   data-toggle="collapse"
