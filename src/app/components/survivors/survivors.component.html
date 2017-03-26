@@ -1,0 +1,19 @@
+<h2>Survivor Verification</h2>
+<div class="well" style="margin: 10px;"> 
+    <table id="dTable" class="table display">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Middle Initial</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of survivors">
+            <td>{{ s.firstName }}</td>
+            <td>{{ s.midInit }}</td>
+            <td>{{ s.lastName }}</td>
+        </tr>
+    </tbody>
+    </table>
+</div>
