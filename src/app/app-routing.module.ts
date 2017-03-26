@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-
 import { AdminComponent } from "./components/admin/admin.component";
 import { HubComponent } from "./components/hub/hub.component";
 

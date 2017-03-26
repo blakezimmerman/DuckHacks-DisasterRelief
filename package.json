@@ -20,8 +20,13 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@types/core-js": "^0.9.39",
+    "angular-datatables": "^2.2.0",
     "core-js": "^2.4.1",
+    "datatables.net": "^1.10.13",
+    "datatables.net-dt": "^1.10.13",
     "express": "^4.15.2",
+    "jquery": "^3.2.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
