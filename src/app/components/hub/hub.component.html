@@ -21,6 +21,10 @@
     </div>
 
     <div class="hubItems">
+        <div *ngIf="boolSummary">
+            <summary [summary]="summary"></summary>
+        </div>
+
         <div *ngIf="boolContacts">
             <contacts [contacts]="contacts"></contacts>
         </div>

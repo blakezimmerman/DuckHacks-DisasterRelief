@@ -17,34 +17,35 @@ declare var moment: any;
 export class HubComponent {
   
   constructor(private http: Http, private router: Router, private route: ActivatedRoute, private sanitizer: DomSanitizer, private appService: AppService) {}
-  me = null;
-  boolAdvisories = null;
-  boolSurvivors = null;
+  state = null;
+  boolSummary = null;
   boolContacts = null;
+  boolAdvisories = null;
   boolLocations = null;
   boolPrecautions = null;
-  precautions = null;
-  title = null;
-  advisories = null;
-  locations = null;
-  googleMapsLinks = null;
+  boolSurvivors = null;
+  summary = null;
   contacts = null;
+  advisories = null;
+  precautions = null;
+  locations = null;
   survivors = null;
   siteName = null;
   lastUpdate = null; 
   
   ngOnInit() {
     this.appService.getState().subscribe(data => {
-      this.me = data;
-      //this.furtherTesting = data.lastUpdate;
-      console.log(this.me.lastUpdate);
-      this.boolAdvisories = this.me.boolAdvisories;
-      this.boolSurvivors = this.me.boolSurvivors;
-      this.boolContacts = this.me.boolContacts;
-      this.boolLocations = this.me.boolLocations;
-      this.boolPrecautions = this.me.boolPrecautions;
-      this.precautions = JSON.parse(this.me.precautions);
-      this.advisories = JSON.parse(this.me.advisories);
+      this.state = data;
+      //this.boolSummary = this.state.boolSummary;
+      this.boolContacts = this.state.boolContacts;
+      this.boolAdvisories = this.state.boolAdvisories;
+      this.boolSurvivors = this.state.boolSurvivors;
+      this.boolContacts = this.state.boolContacts;
+      this.boolLocations = this.state.boolLocations;
+      this.boolPrecautions = this.state.boolPrecautions;
+      //this.summary = JSON.parse(this.state.summary);
+      this.contacts = JSON.parse(this.state.contacts);
+      this.advisories = JSON.parse(this.state.advisories);
       if(this.advisories.length > 0)
       {
         for(let i = 1; i < this.advisories.length; i++)
@@ -54,12 +55,11 @@ export class HubComponent {
           console.log(this.advisories[i]);
         }
       }
-      this.precautions = JSON.parse(this.me.precautions);
-      this.locations = JSON.parse(this.me.locations);
-      this.contacts = JSON.parse(this.me.contacts);
-      this.survivors = JSON.parse(this.me.survivors);
-      this.siteName = this.me.siteName;
-      this.lastUpdate = moment(this.me.lastUpdate).format("dddd, MMMM Do YYYY, h:mm:ss A ZZ");
+      this.precautions = JSON.parse(this.state.precautions);
+      this.locations = JSON.parse(this.state.locations);
+      this.survivors = JSON.parse(this.state.survivors);
+      this.siteName = this.state.siteName;
+      this.lastUpdate = moment(this.state.lastUpdate).format("dddd, MMMM Do YYYY, h:mm:ss A ZZ");
     })
   }
 

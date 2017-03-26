@@ -20,6 +20,7 @@ export class AdminComponent {
   lastUpdated = "";
 
   // Activation attributes
+  boolSummary = 1
   boolContacts = 1
   boolAdvisories = 1
   boolLocations = 1
@@ -48,6 +49,7 @@ export class AdminComponent {
   advisoryMsgVal = "";
 
   // Entity arrays
+  summary = [];
   contacts = [];
   locations = [];
   advisories = [];
@@ -57,11 +59,13 @@ export class AdminComponent {
   ngOnInit(){
     this.appService.getState().subscribe(data => {
       this.state = data;
-      this.boolAdvisories = this.state.boolAdvisories;
-      this.boolSurvivors = this.state.boolSurvivors;
+      //this.boolSummary = this.state.boolSummary;
       this.boolContacts = this.state.boolContacts;
+      this.boolAdvisories = this.state.boolAdvisories;
       this.boolLocations = this.state.boolLocations;
       this.boolPrecautions = this.state.boolPrecautions;
+      this.boolSurvivors = this.state.boolSurvivors;
+      //this.summary = JSON.parse(this.state.summary);
       this.contacts = JSON.parse(this.state.contacts);
       this.advisories = JSON.parse(this.state.advisories);
       this.locations = JSON.parse(this.state.locations);

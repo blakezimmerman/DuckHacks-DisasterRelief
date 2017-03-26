@@ -10,12 +10,12 @@ import { AppService } from "./app.service";
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { HubComponent } from './components/hub/hub.component';
-//import { GoogleMapsComponent } from './google-maps/google-maps.component';
 
-import { AdvisoriesComponent } from './components/advisories/advisories.component';
+import { SummaryComponent } from './components/summary/summary.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
-import { PrecautionsComponent } from './components/precautions/precautions.component';
+import { AdvisoriesComponent } from './components/advisories/advisories.component';
 import { LocationsComponent } from './components/locations/locations.component';
+import { PrecautionsComponent } from './components/precautions/precautions.component';
 import { SurvivorsComponent } from './components/survivors/survivors.component';
 
 @NgModule({
@@ -23,10 +23,11 @@ import { SurvivorsComponent } from './components/survivors/survivors.component';
     AppComponent,
     AdminComponent,
     HubComponent,
-    AdvisoriesComponent,
+    SummaryComponent,
     ContactsComponent,
-    PrecautionsComponent,
+    AdvisoriesComponent,
     LocationsComponent,
+    PrecautionsComponent,
     SurvivorsComponent
   ],
   imports: [
