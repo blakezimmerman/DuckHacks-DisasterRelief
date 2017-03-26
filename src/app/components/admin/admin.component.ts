@@ -57,19 +57,19 @@ export class AdminComponent {
   ngOnInit(){
     this.appService.getState().subscribe(data => {
       this.me = data;
-      console.log(this.me.lastUpdate);
       this.boolAdvisories = this.me.boolAdvisories;
       this.boolSurvivors = this.me.boolSurvivors;
       this.boolContacts = this.me.boolContacts;
       this.boolLocations = this.me.boolLocations;
-      this.boolPrecautions = this.me.boolPrecautions;
+      this.boolPrecaution = this.me.boolPrecautions;
       this.advisories = JSON.parse(this.me.advisories);
       this.locations = JSON.parse(this.me.locations);
       this.contacts = JSON.parse(this.me.contacts);
       this.survivors = JSON.parse(this.me.survivors);
       this.siteName = this.me.siteName;
-      this.lastUpdate = this.me.lastUpdate;
+      this.lastUpdated = this.me.lastUpdate;
     })
+  }
 
   addContact(){
     this.contacts.push({ name: this.nameVal,
