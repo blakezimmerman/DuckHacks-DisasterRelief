@@ -23,7 +23,7 @@ export class AdminComponent {
   boolContacts = 1
   boolAdvisories = 1
   boolLocations = 1
-  boolPrecaution = 1;
+  boolPrecautions = 1;
   boolSurvivors = 1;
 
   // Survivor attributes
@@ -61,7 +61,7 @@ export class AdminComponent {
       this.boolSurvivors = this.me.boolSurvivors;
       this.boolContacts = this.me.boolContacts;
       this.boolLocations = this.me.boolLocations;
-      this.boolPrecaution = this.me.boolPrecautions;
+      this.boolPrecautions = this.me.boolPrecautions;
       this.advisories = JSON.parse(this.me.advisories);
       this.locations = JSON.parse(this.me.locations);
       this.contacts = JSON.parse(this.me.contacts);
@@ -165,10 +165,10 @@ export class AdminComponent {
   }
 
   togglePrecaution(){
-    if(this.boolPrecaution == 1){
-      this.boolPrecaution = 0;
+    if(this.boolPrecautions == 1){
+      this.boolPrecautions = 0;
     }else{
-      this.boolPrecaution = 1;
+      this.boolPrecautions = 1;
     }
   }
 
@@ -189,7 +189,7 @@ export class AdminComponent {
                                  "boolContacts":this.boolContacts,
                                  "boolLocations":this.boolLocations,
                                  "boolAdvisories":this.boolAdvisories,
-                                 "boolPrecations":this.boolPrecaution,
+                                 "boolPrecautions":this.boolPrecautions,
                                  "boolSurvivors":this.boolSurvivors,
                                  "siteName":this.siteName,
                                  "lastUpdate":new Date()})

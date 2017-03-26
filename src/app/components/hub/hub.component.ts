@@ -21,6 +21,7 @@ export class HubComponent {
   boolPrecautions = null;
   title = null;
   advisories = null;
+  precautions = null;
   locations = null;
   googleMapsLinks = null;
   contacts = null;
@@ -39,6 +40,7 @@ export class HubComponent {
       this.boolLocations = this.me.boolLocations;
       this.boolPrecautions = this.me.boolPrecautions;
       this.advisories = JSON.parse(this.me.advisories);
+      this.precautions = JSON.parse(this.me.precautions);
       this.locations = JSON.parse(this.me.locations);
       this.contacts = JSON.parse(this.me.contacts);
       this.survivors = JSON.parse(this.me.survivors);

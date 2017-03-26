@@ -216,14 +216,14 @@
         <a data-toggle="collapse"
            data-parent="sectionAccordian"
            href="#precautionSection"
-           *ngIf="boolPrecaution">Precautionary Checklist</a>
+           *ngIf="boolPrecautions">Precautionary Checklist</a>
         <a href="#"
            onclick="return false"
-           *ngIf="!boolPrecaution"
+           *ngIf="!boolPrecautions"
            style='color:gray'>Precautionary Checklist</a>
         <label class="pull-right switch">
-          <input type="checkbox" (click)="togglePrecaution()" onClick="$('#precautionSection').collapse('hide')" *ngIf="boolPrecaution" checked>
-          <input type="checkbox" (click)="togglePrecaution()" *ngIf="!boolPrecaution" unchecked>
+          <input type="checkbox" (click)="togglePrecaution()" onClick="$('#precautionSection').collapse('hide')" *ngIf="boolPrecautions" checked>
+          <input type="checkbox" (click)="togglePrecaution()" *ngIf="!boolPrecautions" unchecked>
           <div class="slider round"></div>
         </label>
       </h3>
