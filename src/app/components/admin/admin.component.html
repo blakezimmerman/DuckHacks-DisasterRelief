@@ -18,8 +18,8 @@
   </li>
   </ul>
   <button id="addContactInfo" (click)="addContact()">Add Contact</button>
-  <button data-toggle="collapse"  data-target="#contactsList">Display All Contacts</button>
-  <ul id="contactsList" class="collapse" *ngFor="let contact of contacts">
+  <!--<button data-toggle="collapse"  data-target="#contactsList">Display All Contacts</button>-->
+  <ul id="contactsList" class="" *ngFor="let contact of contacts">
     <li>Name: {{contact.name}}</li>
     <li>Phone: {{contact.phone}}</li>
     <li>Email: {{contact.email}}</li> 
@@ -39,8 +39,8 @@
     </li>
   </ul>
   <button id="addLocation" (click)="addLocation()">Add Location </button>
-  <button data-toggle="collapse" data-target="#locList"> Display All Locations </button>
-  <ul id="locList" class="collapse" *ngFor="let loc of locations">
+  <!--<button data-toggle="collapse" data-target="#locList"> Display All Locations </button>-->
+  <ul id="locList" class="" *ngFor="let loc of locations">
     <li>Address: {{loc.address}}</li>
     <li>Description: {{loc.desc}}</li>
   </ul>

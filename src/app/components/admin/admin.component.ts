@@ -15,13 +15,22 @@ export class AdminComponent {
   nameVal = "";
   emailVal ="";
   phoneNumVal = "";
+  addressVal = "";
+  addressDescVal = "";
   contacts = [];
+  locations = [];
   addContact()
   {
     this.contacts.push({name: this.nameVal, phone: this.phoneNumVal, email: this.emailVal});
     this.nameVal = "";
     this.emailVal = "";
     this.phoneNumVal = "";
+  }
+  addLocation() 
+  {
+    this.locations.push({address: this.addressVal, desc: this.addressDescVal});
+    this.addressVal = "";
+    this.addressDescVal = "";
   }
   sendBoundVariables()
   {
