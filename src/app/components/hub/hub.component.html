@@ -38,6 +38,21 @@
             </div>
         </div>
     </div>
+    <div *ngIf="boolLocations">
+        <h2>Key Locations</h2>
+        <div class="well">
+          <!--<div class="row" *ngFor="let l of googleMapsLinks">
+            <iframe width="450" height="250" frameborder="1"
+                    style="border:0" [src]="sanitizer.bypassSecurityTrustResourceUrl( 1 )">
+            </iframe>
+          </div>-->
+          <div  *ngFor="let loc of locations">
+               <p><b>{{ loc.name }}</b></p>
+               <p>{{ loc.address }}</p>
+               <p>{{ loc.desc }}</p>
+          </div>
+        </div>
+    </div>
     <div *ngIf="boolSurvivors">
         <h2>Survivor Verification</h2>
         <div class="well" style="margin: 10px;"> 
