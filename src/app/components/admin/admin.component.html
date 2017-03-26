@@ -30,13 +30,13 @@
             data-parent="sectionAccordian"
             href="#contactSection"
             *ngIf="boolContacts">Contact Information</a>
-          <span class="glyphicon glyphicon-question-sign"
-                data-toggle="tooltip"
-                title="Displays important public contact information"></span>
           <a href="#"
             onclick="return false"
             *ngIf="!boolContacts"
             style='color:gray'>Contact Information</a>
+          <span class="glyphicon glyphicon-question-sign"
+              data-toggle="tooltip"
+              title="Displays important public contact information"></span>
           <label class="pull-right switch">
             <input type="checkbox" (click)="toggleContacts()" onClick="$('#contactSection').collapse('hide')" *ngIf="boolContacts" checked>
             <input type="checkbox" (click)="toggleContacts()" *ngIf="!boolContacts" unchecked>
