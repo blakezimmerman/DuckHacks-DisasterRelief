@@ -11,8 +11,13 @@ def launch_web_memes():
     time.sleep(10)
     webbrowser.open("http://localhost:4200/admin")
 
+def launch_backend_memes():
+    sp.call(["node backend.js"], shell=True)
+
 def launch_the_memes(args):
     t = Thread(target=launch_web_memes)
+    t2 = Thread(target=launch_backend_memes)
+    t2.start()
     t.start()
     sp.call(["ng serve"], shell=True)
     with open("state.json", "w") as state_file:
