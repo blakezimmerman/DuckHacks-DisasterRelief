@@ -1,97 +1,143 @@
 <div class="jumbotron">
-  <p>{{title}}</p>
+  <h1>{{title}}</h1>
 </div>
-<div id="contactInfo">
-  <legend>Contact Information</legend>
-  <table class="table table-hover">
-    <tr>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Email</th>
-    </tr>
-    <tr *ngFor="let c of contacts">
-      <td>{{ c.name }}</td>
-      <td>{{ c.phone }}</td>
-      <td>{{ c.email }}</td>
-    </tr>
-  </table>
-  <div type="button"  data-toggle="collapse" data-target="#contactForm">
-    <span class="glyphicon glyphicon-plus"></span>
+<div class="panel-group" id="sectionAccordian">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">
+        <a data-toggle="collapse"
+           data-parent="sectionAccordian"
+           href="#contactSection">Contact Information</a>
+      </h2>
+    </div>
+    <div id="contactSection" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <table class="table table-hover">
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+          </tr>
+          <tr *ngFor="let c of contacts">
+            <td>{{ c.name }}</td>
+            <td>{{ c.phone }}</td>
+            <td>{{ c.email }}</td>
+          </tr>
+        </table>
+        <div type="button"  data-toggle="collapse" data-target="#contactForm">
+          <span class="glyphicon glyphicon-plus"></span>
+        </div>
+        <div class="collapse" id="contactForm">
+          <ul style="list-style-type: none">
+            <li>
+              <label>Name/Organization: </label>
+              <input [(ngModel)]="nameVal">
+            </li>
+            <li>
+              <label>Phone Number: </label>
+              <input [(ngModel)]="phoneNumVal">
+            </li>
+            <li>
+              <label>Email: </label>
+              <input [(ngModel)]="emailVal">
+            </li>
+          </ul>
+          <button class="btn btn-md btn-primary"
+                  id="addContactInfo" 
+                  data-toggle="collapse" 
+                  data-target="#contactForm" 
+                  (click)="addContact()">Add Contact</button>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="collapse" id="contactForm">
-    <ul style="list-style-type: none">
-      <li>
-        <label>Name/Organization: </label>
-        <input [(ngModel)]="nameVal">
-      </li>
-      <li>
-        <label>Phone Number: </label>
-        <input [(ngModel)]="phoneNumVal">
-      </li>
-      <li>
-        <label>Email: </label>
-        <input [(ngModel)]="emailVal">
-      </li>
-    </ul>
-    <button class="btn btn-md btn-primary" id="addContactInfo" data-toggle="collapse" data-target="#contactForm" (click)="addContact()">Add Contact</button>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">
+        <a data-toggle="collapse"
+           data-parent="sectionAccordian"
+           href="#advisorySection">Advisories</a>
+      </h2>
+    </div>
+    <div id="advisorySection" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table class="table table-hover">
+          <tr>
+            <th>Description</th>
+          </tr>
+          <tr *ngFor="let adv of advisories">
+            <td>{{ adv.desc }}</td>
+          </tr>
+        </table>
+        <div type="button" data-toggle="collapse" data-target="#advisoryForm">
+          <span class="glyphicon glyphicon-plus"></span>
+        </div>
+        <div class="collapse" id="advisoryForm">
+          <ul style="list-style-type: none">
+            <li>
+              <label>Message: </label>
+              <input [(ngModel)]="advisoryDescVal">
+            </li>
+          </ul>
+          <button id="addAdvisory" 
+                  class="btn btn-md btn-primary" 
+                  data-toggle="collapse"
+                  data-target="#advisoryForm"
+                  (click)="addAdvisory()">Add Advisory</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">
+        <a data-toggle="collapse"
+           data-parent="sectionAccordian"
+           href="#locationSection">Key Locations</a>
+      </h2>
+    </div>
+    <div id="locationSection" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table class="table table-hover">
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Description</th>
+          </tr>
+          <tr *ngFor="let loc of locations">
+            <td>{{ loc.name }}</td>
+            <td>{{ loc.address }}</td>
+            <td>{{ loc.desc }}</td>
+          </tr>
+        </table>
+        <div type="button" data-toggle="collapse" data-target="#locationForm">
+          <span class="glyphicon glyphicon-plus"></span>
+        </div>
+        <div class="collapse" id="locationForm">
+          <ul style="list-style-type: none">
+            <li>
+              <label>Name: </label>
+              <input [(ngModel)]="locNameVal">
+            </li>
+            <li>
+              <label>Address: </label>
+              <input [(ngModel)]="locAddressVal">
+            </li>
+            <li>
+              <label>Description: </label>
+              <input [(ngModel)]="locDescVal">
+            </li>
+          </ul>
+          <button id="addLocation" 
+                  data-toggle="collapse"
+                  class="btn btn-md btn-primary"
+                  data-target="#locationForm"
+                  (click)="addLocation()">Add Location</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div id="prepartion">
-  <legend>Advisories</legend>
-  <table class="table table-hover">
-    <tr>
-      <th>Description</th>
-    </tr>
-    <tr *ngFor="let adv of advisories">
-      <td>{{ adv.desc }}</td>
-    </tr>
-  </table>
-  <div type="button" data-toggle="collapse" data-target="#advisoryForm">
-    <span class="glyphicon glyphicon-plus"></span>
-  </div>
-  <div class="collapse" id="advisoryForm">
-    <ul style="list-style-type: none">
-      <li>
-        <label>Message: </label>
-        <input [(ngModel)]="advisoryDescVal">
-      </li>
-    </ul>
-    <button id="addAdvisory" class="btn btn-md btn-primary" data-toggle="collapse" data-target="#advisoryForm"(click)="addAdvisory()">Add Advisory</button>
-  </div>
-</div>
-<div id="locations">
-  <legend>Points of Interest</legend>
-  <table class="table table-hover">
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Description</th>
-    </tr>
-    <tr *ngFor="let loc of locations">
-      <td>{{ loc.name }}</td>
-      <td>{{ loc.address }}</td>
-      <td>{{ loc.desc }}</td>
-    </tr>
-  </table>
-  <div type="button" data-toggle="collapse" data-target="#locationForm">
-    <span class="glyphicon glyphicon-plus"></span>
-  </div>
-  <div class="collapse" id="locationForm">
-    <ul style="list-style-type: none">
-      <li>
-        <label>Name: </label>
-        <input [(ngModel)]="locNameVal">
-      </li>
-      <li>
-        <label>Address: </label>
-        <input [(ngModel)]="locAddressVal">
-      </li>
-      <li>
-        <label>Description: </label>
-        <input [(ngModel)]="locDescVal">
-      </li>
-    </ul>
-    <button id="addLocation" data-toggle="collapse" class="btn btn-md btn-primary" data-target="#locationForm" (click)="addLocation()">Add Location</button>
-  </div>
-</div>
-<button class="btn btn-lg btn-primary" id="sendBound" (click)="sendBoundVariables()">Update Website</button>
+<button class="btn btn-lg btn-primary" 
+        id="sendBound"
+        (click)="sendBoundVariables()">Update Website</button>

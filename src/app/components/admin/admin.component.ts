@@ -6,22 +6,30 @@ import { ActivatedRoute } from "@angular/router";
   templateUrl: 'admin.component.html',
   styleUrls: ['admin.component.css']
 })
+
 export class AdminComponent {
 
   constructor(private route: ActivatedRoute) {}
-
   title = 'Management Page';
-  contactInfoTitle = "Contact Info";
+
+  // Contact attributes
   nameVal = "";
   emailVal ="";
   phoneNumVal = "";
+
+  // Location attributes
   locNameVal = "";
   locAddressVal = "";
   locDescVal = "";
+
+  // Advisory attributes
   advisoryDescVal = "";
+
+  // Entity arrays
   contacts = [];
   locations = [];
   advisories = [];
+
   addContact(){
     this.contacts.push({ name: this.nameVal,
                          phone: this.phoneNumVal,
@@ -47,7 +55,6 @@ export class AdminComponent {
 
   sendBoundVariables(){
     console.log(this.nameVal);
-    console.log(this.contactInfoTitle);
     console.log(this.contacts);
   }
 }
