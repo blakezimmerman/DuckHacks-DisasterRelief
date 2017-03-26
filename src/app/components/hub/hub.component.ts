@@ -22,7 +22,6 @@ export class HubComponent {
   precautions = null;
   title = null;
   advisories = null;
-  precautions = null;
   locations = null;
   googleMapsLinks = null;
   contacts = null;
