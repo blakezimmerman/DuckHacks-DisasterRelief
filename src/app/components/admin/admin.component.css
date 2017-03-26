@@ -1,0 +1,14 @@
+.jumbotron{
+    font-size: 35;
+    background-color: #4078a5;
+    color: white;
+    padding-left: 20px;
+}
+
+.glyphicon-plus{
+    cursor: pointer;
+}
+
+.glyphicon-minus{
+    cursor: pointer;
+}
