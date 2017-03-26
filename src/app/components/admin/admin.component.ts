@@ -15,6 +15,7 @@ export class AdminComponent {
 
   // Misc attributes
   title = 'Management Page';
+  siteName = "Disaster Relief Page";
 
   // Activation attributes
   boolContacts = 1
@@ -106,7 +107,13 @@ export class AdminComponent {
     console.log(this.contacts);
     console.log(this.advisories);
 
-    this.appService.updateState({"address":"test","desc":"test","name":"test","phone":"test","email":"test"}) //hardcode test for now
+    this.appService.updateState({"locations":JSON.stringify(this.locations),
+                                 "contacts":JSON.stringify(this.contacts),
+                                 "advisories":JSON.stringify(this.advisories),
+                                 "boolContacts":this.boolContacts,
+                                 "boolLocations":this.boolLocations,
+                                 "boolAdvisories":this.boolAdvisories,
+                                 "siteName":this.siteName})
   }
 }
 

@@ -1,10 +1,27 @@
+<div id="row">
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 <div class="jumbotron">
   <h1>{{title}}</h1>
 </div>
+<h2>Main Content</h2>
+<div class="well">
+    <label>Site Name:
+       <input value="{{ siteName }}" [(ngModel)]="siteName">
+       <span class="glyphicon glyphicon-question-sign"
+             data-toggle="tooltip"
+             title="Sets the name on the main user page"></span>
+    
+    </label>
+</div>
+<h2>Sections</h2>
 <div class="panel-group" id="sectionAccordian">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h2 class="panel-title">
+      <h3 class="panel-title">
         <a data-toggle="collapse"
            data-parent="sectionAccordian"
            href="#contactSection"
@@ -18,7 +35,7 @@
           <input type="checkbox" (click)="toggleContacts()" *ngIf="!boolContacts" unchecked>
           <div class="slider round"></div>
         </label>
-      </h2>
+      </h3>
     </div>
     <div id="contactSection" class="panel-collapse collapse">
       <div class="panel-body">
@@ -73,7 +90,7 @@
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h2 class="panel-title">
+      <h3 class="panel-title">
         <a data-toggle="collapse"
            data-parent="sectionAccordian"
            href="#advisorySection"
@@ -87,7 +104,7 @@
           <input type="checkbox" (click)="toggleAdvisories()" *ngIf="!boolAdvisories" unchecked>
           <div class="slider round"></div>
         </label>
-      </h2>
+      </h3>
     </div>
     <div id="advisorySection" class="panel-collapse collapse">
       <div class="panel-body">
@@ -126,7 +143,7 @@
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h2 class="panel-title">
+      <h3 class="panel-title">
         <a data-toggle="collapse"
            data-parent="sectionAccordian"
            href="#locationSection"
@@ -140,7 +157,7 @@
           <input type="checkbox" (click)="toggleLocations()" *ngIf="!boolLocations" unchecked>
           <div class="slider round"></div>
         </label>
-      </h2>
+      </h3>
     </div>
     <div id="locationSection" class="panel-collapse collapse">
       <div class="panel-body">
@@ -197,3 +214,4 @@
 <button class="btn btn-lg btn-primary" 
         id="sendBound"
         (click)="sendBoundVariables()">Update Website</button>
+</div>
