@@ -263,6 +263,75 @@
       </div>
     </div>
   </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <a data-toggle="collapse"
+           data-parent="sectionAccordian"
+           href="#survivorSection"
+           *ngIf="boolSurvivors">Survivor Verification</a>
+        <a href="#"
+           onclick="return false"
+           *ngIf="!boolSurvivors"
+           style='color:gray'>Survivor Verification</a>
+        <label class="pull-right switch">
+          <input type="checkbox" (click)="toggleSurvivors()" onClick="$('#survivorSection').collapse('hide')" *ngIf="boolSurvivors" checked>
+          <input type="checkbox" (click)="toggleSurvivors()" *ngIf="!boolSurvivors" unchecked>
+          <div class="slider round"></div>
+        </label>
+      </h3>
+    </div>
+    <div id="survivorSection" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table class="table table-hover">
+          <tr>
+            <th>First Name</th>
+            <th>Middle Initial</th>
+            <th>Last Name</th>
+            <th>Remove</th>
+          </tr>
+          <tr *ngFor="let s of survivors">
+            <td>{{ s.firstName }}</td>
+            <td>{{ s.midInit }}</td>
+            <td>{{ s.lastName }}</td>
+            <td>
+              <span (click)="removeSurvivor(s)" class="glyphicon glyphicon-minus"></span>
+            </td>
+          </tr>
+        </table>
+        <div type="button"  data-toggle="collapse" data-target="#survivorForm">
+          <span class="glyphicon glyphicon-plus"></span>
+        </div>
+        <div class="collapse" id="survivorForm">
+          <ul style="list-style-type: none">
+            <div class="row">
+              <li>
+                <label>First Name: </label>
+                <input [(ngModel)]="survFirstVal">
+              </li>
+            </div>
+            <div class="row">
+              <li>
+                <label>Middle Initial: </label>
+                <input [(ngModel)]="survMidVal">
+              </li>
+            </div>
+            <div class="row">
+              <li>
+                <label>Last Name: </label>
+                <input [(ngModel)]="survLastVal">
+              </li>
+            </div>
+          </ul>
+          <button class="btn btn-md btn-primary"
+                  id="addSurvivor" 
+                  data-toggle="collapse" 
+                  data-target="#survivorForm" 
+                  (click)="addSurvivor()">Add Survivor</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <button class="btn btn-lg btn-primary" 
         id="sendBound"

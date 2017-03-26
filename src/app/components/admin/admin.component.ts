@@ -23,6 +23,12 @@ export class AdminComponent {
   boolAdvisories = 1
   boolLocations = 1
   boolPrecaution = 1;
+  boolSurvivors = 1;
+
+  // Survivor attributes
+  survFirstVal = "";
+  survLastVal = "";
+  survMidVal = "";
 
   // Precaution attributes
   precautionVal = "";
@@ -45,6 +51,7 @@ export class AdminComponent {
   locations = [];
   advisories = [];
   precautions = [];
+  survivors = [];
 
   addContact(){
     this.contacts.push({ name: this.nameVal,
@@ -58,6 +65,20 @@ export class AdminComponent {
   removeContact(contact){
     let x = this.contacts.indexOf(contact)
     this.contacts.splice(x, x+1);
+  }
+
+  addSurvivor(){
+    this.survivors.push({ firstName: this.survFirstVal,
+                          midInit: this.survMidVal,
+                          lastName: this.survLastVal });
+    this.survFirstVal = "";
+    this.survLastVal = "";
+    this.survMidVal = "";
+  }
+
+  removeSurvivor(surv){
+    let x = this.survivors.indexOf(surv);
+    this.survivors.splice(x, x+1);
   }
 
   addPrecaution(){
@@ -102,6 +123,14 @@ export class AdminComponent {
     }
   }
 
+  toggleSurvivors(){
+    if(this.boolSurvivors == 1){
+      this.boolSurvivors = 0;
+    }else{
+      this.boolSurvivors = 1;
+    }
+  }
+
   toggleContacts(){
     if(this.boolContacts == 1){
       this.boolContacts = 0;
@@ -131,6 +160,7 @@ export class AdminComponent {
                                  "contacts":JSON.stringify(this.contacts),
                                  "advisories":JSON.stringify(this.advisories),
                                  "precautions":JSON.stringify(this.precautions),
+                                 "survivors":JSON.stringify(this.survivors),
                                  "boolContacts":this.boolContacts,
                                  "boolLocations":this.boolLocations,
                                  "boolAdvisories":this.boolAdvisories,
