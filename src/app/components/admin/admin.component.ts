@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'admin',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['admin.component.css']
 })
 export class AdminComponent {
+
+  constructor(private route: ActivatedRoute) {}
+
   title = 'Admin Page!';
   contactInfoTitle = "Contact Info";
   nameVal = "";

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from "@angular/router";
+
+import { AdminComponent } from './components/admin/admin.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Disaster Info Page';
+
+  constructor(private router: Router) { }
 }
