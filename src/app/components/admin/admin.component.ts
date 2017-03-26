@@ -22,6 +22,10 @@ export class AdminComponent {
   boolContacts = 1
   boolAdvisories = 1
   boolLocations = 1
+  boolPrecaution = 1;
+
+  // Precaution attributes
+  precautionVal = "";
 
   // Contact attributes
   nameVal = "";
@@ -40,6 +44,7 @@ export class AdminComponent {
   contacts = [];
   locations = [];
   advisories = [];
+  precautions = [];
 
   addContact(){
     this.contacts.push({ name: this.nameVal,
@@ -53,6 +58,16 @@ export class AdminComponent {
   removeContact(contact){
     let x = this.contacts.indexOf(contact)
     this.contacts.splice(x, x+1);
+  }
+
+  addPrecaution(){
+    this.precautions.push({ desc: this.precautionVal });
+    this.precautionVal = "";
+  }
+
+  removePrecaution(precaution){
+    let x = this.precautions.indexOf(precaution);
+    this.precautions.splice(x,x+1);
   }
 
   addLocation(){
@@ -95,6 +110,14 @@ export class AdminComponent {
     }
   }
 
+  togglePrecautions(){
+    if(this.boolPrecaution == 1){
+      this.boolPrecaution = 0;
+    }else{
+      this.boolPrecaution = 1;
+    }
+  }
+
   toggleAdvisories(){
     if(this.boolAdvisories == 1){
       this.boolAdvisories = 0;
@@ -104,13 +127,10 @@ export class AdminComponent {
   }
 
   sendBoundVariables(){
-    console.log(this.locations);
-    console.log(this.contacts);
-    console.log(this.advisories);
-
     this.appService.updateState({"locations":JSON.stringify(this.locations),
                                  "contacts":JSON.stringify(this.contacts),
                                  "advisories":JSON.stringify(this.advisories),
+                                 "precautions":JSON.stringify(this.precautions),
                                  "boolContacts":this.boolContacts,
                                  "boolLocations":this.boolLocations,
                                  "boolAdvisories":this.boolAdvisories,

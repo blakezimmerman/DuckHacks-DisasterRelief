@@ -210,6 +210,59 @@
       </div>
     </div>
   </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <a data-toggle="collapse"
+           data-parent="sectionAccordian"
+           href="#precautionSection"
+           *ngIf="boolPrecaution">Precautionary Checklist</a>
+        <a href="#"
+           onclick="return false"
+           *ngIf="!boolPrecaution"
+           style='color:gray'>Precautionary Checklist</a>
+        <label class="pull-right switch">
+          <input type="checkbox" (click)="togglePrecaution()" onClick="$('#precautionSection').collapse('hide')" *ngIf="boolPrecaution" checked>
+          <input type="checkbox" (click)="togglePrecaution()" *ngIf="!boolPrecaution" unchecked>
+          <div class="slider round"></div>
+        </label>
+      </h3>
+    </div>
+    <div id="precautionSection" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table class="table table-hover">
+          <tr>
+            <th>Description</th>
+            <th>Remove</th>
+          </tr>
+          <tr *ngFor="let pc of precautions">
+            <td>{{ pc.desc }}</td>
+            <td>
+              <span (click)="removePrecaution(pc)" class="glyphicon glyphicon-minus"></span>
+            </td>
+          </tr>
+        </table>
+        <div type="button" data-toggle="collapse" data-target="#precautionForm">
+          <span class="glyphicon glyphicon-plus"></span>
+        </div>
+        <div class="collapse" id="precautionForm">
+          <ul style="list-style-type: none">
+            <div class="row">
+              <li>
+                <label>Precaution: </label>
+                <input [(ngModel)]="precautionVal">
+              </li>
+            </div>
+          </ul>
+          <button class="btn btn-md btn-primary"
+                  id="addPrecaution" 
+                  data-toggle="collapse" 
+                  data-target="#precautionForm" 
+                  (click)="addPrecaution()">Add Precaution</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <button class="btn btn-lg btn-primary" 
         id="sendBound"
