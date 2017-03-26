@@ -346,12 +346,335 @@
                   data-toggle="collapse" 
                   data-target="#survivorForm" 
                   (click)="addSurvivor()">Add Survivor</button>
+=======
+<div class="adminBody">
+  <h2>Main Content</h2>
+  <div class="well">
+      <label>Site Name:</label>
+        <input value="{{ siteName }}" [(ngModel)]="siteName">
+        <span class="glyphicon glyphicon-question-sign"
+              data-toggle="tooltip"
+              title="Sets the name on the main user page"></span>
+  </div>
+  <h2>Sections</h2>
+  <div class="panel-group" id="sectionAccordian">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a data-toggle="collapse"
+            data-parent="sectionAccordian"
+            href="#contactSection"
+            *ngIf="boolContacts">Contact Information</a>
+          <a href="#"
+            onclick="return false"
+            *ngIf="!boolContacts"
+            style='color:gray'>Contact Information</a>
+          <label class="pull-right switch">
+            <input type="checkbox" (click)="toggleContacts()" onClick="$('#contactSection').collapse('hide')" *ngIf="boolContacts" checked>
+            <input type="checkbox" (click)="toggleContacts()" *ngIf="!boolContacts" unchecked>
+            <div class="slider round"></div>
+          </label>
+        </h3>
+      </div>
+      <div id="contactSection" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table table-hover">
+            <tr>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Remove</th>
+            </tr>
+            <tr *ngFor="let c of contacts">
+              <td>{{ c.name }}</td>
+              <td>{{ c.phone }}</td>
+              <td>{{ c.email }}</td>
+              <td>
+                <span (click)="removeContact(c)" class="glyphicon glyphicon-minus"></span>
+              </td>
+            </tr>
+          </table>
+          <div type="button"  data-toggle="collapse" data-target="#contactForm">
+            <span class="glyphicon glyphicon-plus"></span>
+          </div>
+          <div class="collapse" id="contactForm">
+            <ul style="list-style-type: none">
+              <div class="row">
+                <li>
+                  <label>Name/Organization: </label>
+                  <input [(ngModel)]="nameVal">
+                </li>
+              </div>
+              <div class="row">
+                <li>
+                  <label>Phone Number: </label>
+                  <input [(ngModel)]="phoneNumVal">
+                </li>
+              </div>
+              <div class="row">
+                <li>
+                  <label>Email: </label>
+                  <input [(ngModel)]="emailVal">
+                </li>
+              </div>
+            </ul>
+            <button class="btn btn-md btn-primary"
+                    id="addContactInfo" 
+                    data-toggle="collapse" 
+                    data-target="#contactForm" 
+                    (click)="addContact()">Add Contact</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a data-toggle="collapse"
+            data-parent="sectionAccordian"
+            href="#advisorySection"
+            *ngIf="boolAdvisories">Advisory Ticker</a>
+          <a href="#"
+            onclick="return false"
+            *ngIf="!boolAdvisories"
+            style='color:gray'>Advisory Ticker</a>
+          <label class="pull-right switch">
+            <input type="checkbox" (click)="toggleAdvisories()" onClick="$('#advisorySection').collapse('hide')" *ngIf="boolAdvisories" checked>
+            <input type="checkbox" (click)="toggleAdvisories()" *ngIf="!boolAdvisories" unchecked>
+            <div class="slider round"></div>
+          </label>
+        </h3>
+      </div>
+      <div id="advisorySection" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table table-hover">
+            <tr>
+              <th>Message</th>
+              <th>Remove</th>
+            </tr>
+            <tr *ngFor="let adv of advisories">
+              <td>{{ adv.msg }}</td>
+              <td>
+                <span (click)="removeAdvisory(adv)" class="glyphicon glyphicon-minus"></span>
+              </td>
+            </tr>
+          </table>
+          <div type="button" data-toggle="collapse" data-target="#advisoryForm">
+            <span class="glyphicon glyphicon-plus"></span>
+          </div>
+          <div class="collapse" id="advisoryForm">
+            <ul style="list-style-type: none">
+              <div class="row">
+                <li>
+                  <label>Message: </label>
+                  <input [(ngModel)]="advisoryMsgVal">
+                </li>
+              </div>
+            </ul>
+            <button id="addAdvisory" 
+                    class="btn btn-md btn-primary" 
+                    data-toggle="collapse"
+                    data-target="#advisoryForm"
+                    (click)="addAdvisory()">Add Advisory</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a data-toggle="collapse"
+            data-parent="sectionAccordian"
+            href="#locationSection"
+            *ngIf="boolLocations">Key Locations</a>
+          <a href="#"
+            onclick="return false"
+            *ngIf="!boolLocations"
+            style='color:gray'>Key Locations</a>
+          <label class="pull-right switch">
+            <input type="checkbox" (click)="toggleLocations()" onClick="$('#locationSection').collapse('hide')" *ngIf="boolLocations" checked>
+            <input type="checkbox" (click)="toggleLocations()" *ngIf="!boolLocations" unchecked>
+            <div class="slider round"></div>
+          </label>
+        </h3>
+      </div>
+      <div id="locationSection" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table table-hover">
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Description</th>
+              <th>Remove</th>
+            </tr>
+            <tr *ngFor="let loc of locations">
+              <td>{{ loc.name }}</td>
+              <td>{{ loc.address }}</td>
+              <td>{{ loc.desc }}</td>
+              <td>
+                <span (click)="removeLocation(loc)" class="glyphicon glyphicon-minus"></span>
+              </td>
+            </tr>
+          </table>
+          <div type="button" data-toggle="collapse" data-target="#locationForm">
+            <span class="glyphicon glyphicon-plus"></span>
+          </div>
+          <div class="collapse" id="locationForm">
+            <ul style="list-style-type: none">
+              <div class="row">
+                <li>
+                  <label>Name: </label>
+                  <input [(ngModel)]="locNameVal">
+                </li>
+              </div>
+              <div class="row">
+                <li>
+                  <label>Address: </label>
+                  <input [(ngModel)]="locAddressVal">
+                </li>
+              </div>
+              <div class="row">
+                <li>
+                  <label>Description: </label>
+                  <input [(ngModel)]="locDescVal">
+                </li>
+              </div>
+            </ul>
+            <button id="addLocation" 
+                    data-toggle="collapse"
+                    class="btn btn-md btn-primary"
+                    data-target="#locationForm"
+                    (click)="addLocation()">Add Location</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a data-toggle="collapse"
+            data-parent="sectionAccordian"
+            href="#precautionSection"
+            *ngIf="boolPrecautions">Precautionary Checklist</a>
+          <a href="#"
+            onclick="return false"
+            *ngIf="!boolPrecautions"
+            style='color:gray'>Precautionary Checklist</a>
+          <label class="pull-right switch">
+            <input type="checkbox" (click)="togglePrecaution()" onClick="$('#precautionSection').collapse('hide')" *ngIf="boolPrecautions" checked>
+            <input type="checkbox" (click)="togglePrecaution()" *ngIf="!boolPrecautions" unchecked>
+            <div class="slider round"></div>
+          </label>
+        </h3>
+      </div>
+      <div id="precautionSection" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table table-hover">
+            <tr>
+              <th>Description</th>
+              <th>Remove</th>
+            </tr>
+            <tr *ngFor="let pc of precautions">
+              <td>{{ pc.desc }}</td>
+              <td>
+                <span (click)="removePrecaution(pc)" class="glyphicon glyphicon-minus"></span>
+              </td>
+            </tr>
+          </table>
+          <div type="button" data-toggle="collapse" data-target="#precautionForm">
+            <span class="glyphicon glyphicon-plus"></span>
+          </div>
+          <div class="collapse" id="precautionForm">
+            <ul style="list-style-type: none">
+              <div class="row">
+                <li>
+                  <label>Precaution: </label>
+                  <input [(ngModel)]="precautionVal">
+                </li>
+              </div>
+            </ul>
+            <button class="btn btn-md btn-primary"
+                    id="addPrecaution" 
+                    data-toggle="collapse" 
+                    data-target="#precautionForm" 
+                    (click)="addPrecaution()">Add Precaution</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a data-toggle="collapse"
+            data-parent="sectionAccordian"
+            href="#survivorSection"
+            *ngIf="boolSurvivors">Survivor Verification</a>
+          <a href="#"
+            onclick="return false"
+            *ngIf="!boolSurvivors"
+            style='color:gray'>Survivor Verification</a>
+          <label class="pull-right switch">
+            <input type="checkbox" (click)="toggleSurvivors()" onClick="$('#survivorSection').collapse('hide')" *ngIf="boolSurvivors" checked>
+            <input type="checkbox" (click)="toggleSurvivors()" *ngIf="!boolSurvivors" unchecked>
+            <div class="slider round"></div>
+          </label>
+        </h3>
+      </div>
+      <div id="survivorSection" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table table-hover">
+            <tr>
+              <th>First Name</th>
+              <th>Middle Initial</th>
+              <th>Last Name</th>
+              <th>Remove</th>
+            </tr>
+            <tr *ngFor="let s of survivors">
+              <td>{{ s.firstName }}</td>
+              <td>{{ s.midInit }}</td>
+              <td>{{ s.lastName }}</td>
+              <td>
+                <span (click)="removeSurvivor(s)" class="glyphicon glyphicon-minus"></span>
+              </td>
+            </tr>
+          </table>
+          <div type="button"  data-toggle="collapse" data-target="#survivorForm">
+            <span class="glyphicon glyphicon-plus"></span>
+          </div>
+          <div class="collapse" id="survivorForm">
+            <ul style="list-style-type: none">
+              <div class="row">
+                <li>
+                  <label>First Name: </label>
+                  <input [(ngModel)]="survFirstVal">
+                </li>
+              </div>
+              <div class="row">
+                <li>
+                  <label>Middle Initial: </label>
+                  <input [(ngModel)]="survMidVal">
+                </li>
+              </div>
+              <div class="row">
+                <li>
+                  <label>Last Name: </label>
+                  <input [(ngModel)]="survLastVal">
+                </li>
+              </div>
+            </ul>
+            <button class="btn btn-md btn-primary"
+                    id="addSurvivor" 
+                    data-toggle="collapse" 
+                    data-target="#survivorForm" 
+                    (click)="addSurvivor()">Add Survivor</button>
+          </div>
+>>>>>>> 5b0a149bc1a2895e2a460c3f5d904fb82d53687e
         </div>
       </div>
     </div>
   </div>
-</div>
-<button class="btn btn-lg btn-primary" 
-        id="sendBound"
-        (click)="sendBoundVariables()">Update Website</button>
+  <button class="btn btn-lg btn-primary" 
+          id="sendBound"
+          (click)="sendBoundVariables()">Update Website</button>
+  </div>
 </div>

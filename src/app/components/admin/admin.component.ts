@@ -14,7 +14,7 @@ export class AdminComponent {
   constructor(private router: Router, private route: ActivatedRoute, private appService: AppService) {}
 
   // Misc attributes
-  me = null;
+  state = null;
   title = 'Management Page';
   siteName = "Disaster Relief Page";
   lastUpdated = "";
@@ -56,18 +56,19 @@ export class AdminComponent {
 
   ngOnInit(){
     this.appService.getState().subscribe(data => {
-      this.me = data;
-      this.boolAdvisories = this.me.boolAdvisories;
-      this.boolSurvivors = this.me.boolSurvivors;
-      this.boolContacts = this.me.boolContacts;
-      this.boolLocations = this.me.boolLocations;
-      this.boolPrecautions = this.me.boolPrecautions;
-      this.advisories = JSON.parse(this.me.advisories);
-      this.locations = JSON.parse(this.me.locations);
-      this.contacts = JSON.parse(this.me.contacts);
-      this.survivors = JSON.parse(this.me.survivors);
-      this.siteName = this.me.siteName;
-      this.lastUpdated = this.me.lastUpdate;
+      this.state = data;
+      this.boolAdvisories = this.state.boolAdvisories;
+      this.boolSurvivors = this.state.boolSurvivors;
+      this.boolContacts = this.state.boolContacts;
+      this.boolLocations = this.state.boolLocations;
+      this.boolPrecautions = this.state.boolPrecautions;
+      this.contacts = JSON.parse(this.state.contacts);
+      this.advisories = JSON.parse(this.state.advisories);
+      this.locations = JSON.parse(this.state.locations);
+      this.precautions = JSON.parse(this.state.precautions);
+      this.survivors = JSON.parse(this.state.survivors);
+      this.siteName = this.state.siteName;
+      this.lastUpdated = this.state.lastUpdate;
     })
   }
 
