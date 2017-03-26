@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'hub',
@@ -8,7 +8,11 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class HubComponent {
   
-  constructor(private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   title = 'Disaster Info Page';
+
+  loadAdmin() {
+     this.router.navigate(["/admin"]);
+  }
 }
