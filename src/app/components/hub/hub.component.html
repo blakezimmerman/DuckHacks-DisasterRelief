@@ -38,18 +38,32 @@
             </div>
         </div>
     </div>
+    <div *ngIf="boolPrecaution">
+        <h2>Precautionary Checklist</h2>
+        <div class="well" style="margin: 10px;"> 
+            <div class="container">
+                <div *ngFor="let p of precautions">
+                  <label>
+                  <input type="checkbox">
+                  {{ p.desc }}</label>
+              </div>
+            </div>
+        </div>
+    </div>
     <div *ngIf="boolLocations">
         <h2>Key Locations</h2>
-        <div class="well">
+        <div class="well" style="margin: 10px;">
           <!--<div class="row" *ngFor="let l of googleMapsLinks">
             <iframe width="450" height="250" frameborder="1"
-                    style="border:0" [src]="sanitizer.bypassSecurityTrustResourceUrl( 1 )">
+                    style="border:0" src="sanitizer.bypassSecurityTrustResourceUrl({{1}})">
             </iframe>
           </div>-->
-          <div  *ngFor="let loc of locations">
+           <div class="container">
+             <div class="col-sm-4" *ngFor="let loc of locations">
                <p><b>{{ loc.name }}</b></p>
                <p>{{ loc.address }}</p>
                <p>{{ loc.desc }}</p>
+             </div>
           </div>
         </div>
     </div>
