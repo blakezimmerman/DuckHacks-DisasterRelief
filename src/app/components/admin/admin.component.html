@@ -14,7 +14,7 @@
 </div>
 <div class="adminBody">
   <h2>Main Content</h2>
-  <div class="well">
+  <div text-align="text-bottom" class="well">
       <label>Site Name:</label>
         <input value="{{ siteName }}" [(ngModel)]="siteName">
         <span class="glyphicon glyphicon-question-sign"
@@ -30,6 +30,9 @@
             data-parent="sectionAccordian"
             href="#contactSection"
             *ngIf="boolContacts">Contact Information</a>
+          <span class="glyphicon glyphicon-question-sign"
+                data-toggle="tooltip"
+                title="Displays important public contact information"></span>
           <a href="#"
             onclick="return false"
             *ngIf="!boolContacts"
@@ -103,6 +106,9 @@
             onclick="return false"
             *ngIf="!boolAdvisories"
             style='color:gray'>Advisory Ticker</a>
+          <span class="glyphicon glyphicon-question-sign"
+                data-toggle="tooltip"
+                title="Scrolling text box for important news"></span>
           <label class="pull-right switch">
             <input type="checkbox" (click)="toggleAdvisories()" onClick="$('#advisorySection').collapse('hide')" *ngIf="boolAdvisories" checked>
             <input type="checkbox" (click)="toggleAdvisories()" *ngIf="!boolAdvisories" unchecked>
@@ -156,6 +162,9 @@
             onclick="return false"
             *ngIf="!boolLocations"
             style='color:gray'>Key Locations</a>
+          <span class="glyphicon glyphicon-question-sign"
+                data-toggle="tooltip"
+                title="Mark noteworthy locations that are of interest to the public"></span>
           <label class="pull-right switch">
             <input type="checkbox" (click)="toggleLocations()" onClick="$('#locationSection').collapse('hide')" *ngIf="boolLocations" checked>
             <input type="checkbox" (click)="toggleLocations()" *ngIf="!boolLocations" unchecked>
@@ -225,6 +234,9 @@
             onclick="return false"
             *ngIf="!boolPrecautions"
             style='color:gray'>Precautionary Checklist</a>
+          <span class="glyphicon glyphicon-question-sign"
+                data-toggle="tooltip"
+                title="Detail steps to take when preparing for a disaster"></span>
           <label class="pull-right switch">
             <input type="checkbox" (click)="togglePrecaution()" onClick="$('#precautionSection').collapse('hide')" *ngIf="boolPrecautions" checked>
             <input type="checkbox" (click)="togglePrecaution()" *ngIf="!boolPrecautions" unchecked>
@@ -278,6 +290,9 @@
             onclick="return false"
             *ngIf="!boolSurvivors"
             style='color:gray'>Survivor Verification</a>
+          <span class="glyphicon glyphicon-question-sign"
+                data-toggle="tooltip"
+                title="Tabular organization of found persons"></span>
           <label class="pull-right switch">
             <input type="checkbox" (click)="toggleSurvivors()" onClick="$('#survivorSection').collapse('hide')" *ngIf="boolSurvivors" checked>
             <input type="checkbox" (click)="toggleSurvivors()" *ngIf="!boolSurvivors" unchecked>
