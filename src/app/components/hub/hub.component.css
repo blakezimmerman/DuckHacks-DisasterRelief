@@ -16,7 +16,7 @@
 
 .loadAdmin {
     background-color: transparent;
-    font-size: 35px;
+    font-size: 30px;
     float: right;
-    /*padding: 0;*/
+    padding-top: 9px;
 }
