@@ -3,18 +3,51 @@
 </h1>
 <div id="contactInfo">
   <legend>{{contactInfoTitle}}</legend>
-  <label>Name</label>
+  <ul style="list-style-type: none">
+    <li>
+  <label>Name/Organization: </label>
   <input [(ngModel)]="nameVal">
-  <label>Phone Number</label>
+    </li>
+    <li>
+  <label>Phone Number: </label>
   <input [(ngModel)]="phoneNumVal">
-  <label>Email</label>
+  </li>
+  <li>
+  <label>Email: </label>
   <input [(ngModel)]="emailVal">
+  </li>
+  </ul>
+  <button id="addContactInfo" (click)="addContact()">Add Contact</button>
+  <button data-toggle="collapse"  data-target="#contactsList">Display All Contacts</button>
+  <ul id="contactsList" class="collapse" *ngFor="let contact of contacts">
+    <li>Name: {{contact.name}}</li>
+    <li>Phone: {{contact.phone}}</li>
+    <li>Email: {{contact.email}}</li> 
+  </ul>
 </div>
-<div id="personnelManagement">
+<div id="prepartion">
+  <legend>Advisories</legend>
 </div>
-<div id="personCheckIn">
+<div id="locations">
+  <legend>Safe Locations</legend>
+  <ul style="list-style: none">
+    <li><label>Address: </label>
+    <input [(ngModel)]="addressVal">
+    </li>
+    <li><label>Description: </label>
+    <input [(ngModel)]="addressDescVal">
+    </li>
+  </ul>
+  <button id="addLocation" (click)="addLocation()">Add Location </button>
+  <button data-toggle="collapse" data-target="#locList"> Display All Locations </button>
+  <ul id="locList" class="collapse" *ngFor="let loc of locations">
+    <li>Address: {{loc.address}}</li>
+    <li>Description: {{loc.desc}}</li>
+  </ul>
 </div>
 <button 
   id="sendBound" (click)="sendBoundVariables()">Update Website
 </button>
+
+
 

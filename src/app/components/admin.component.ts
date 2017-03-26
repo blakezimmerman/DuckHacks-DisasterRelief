@@ -11,16 +11,24 @@ export class AdminComponent {
   nameVal = "";
   emailVal ="";
   phoneNumVal = "";
+  contacts = [];
+  addContact()
+  {
+    this.contacts.push({name: this.nameVal, phone: this.phoneNumVal, email: this.emailVal});
+    this.nameVal = "";
+    this.emailVal = "";
+    this.phoneNumVal = "";
+  }
   sendBoundVariables()
   {
     console.log(this.nameVal);
     console.log(this.contactInfoTitle);
+    console.log(this.contacts);
   }
 }
 
 /*
 *todo:
-*check boxes that make text boxes clickable
-*submit button at the very bottom that serializes the 
+*check boxes that make text boxes clickable 
 *entire webpage
 */
