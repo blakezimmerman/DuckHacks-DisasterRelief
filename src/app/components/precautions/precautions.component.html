@@ -1,0 +1,10 @@
+<h2>Precautionary Checklist</h2>
+<div class="well" style="margin: 10px;"> 
+    <div class="container">
+        <div *ngFor="let p of precautions">
+            <label>
+            <input type="checkbox">
+            {{ p.desc }}</label>
+        </div>
+    </div>
+</div>

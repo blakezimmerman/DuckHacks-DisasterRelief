@@ -1,0 +1,10 @@
+<h2>Contact Information</h2>
+<div class="well" style="margin: 10px;"> 
+    <div class="container">
+        <div class="col-sm-4" *ngFor="let c of contacts">
+        <p><b>{{ c.name }}</b></p>
+        <p>Phone: {{ c.phone }}</p>
+        <p>Email: {{ c.email }}</p>
+        </div>
+    </div>
+</div>

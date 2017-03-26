@@ -1,0 +1,15 @@
+<h2>Key Locations</h2>
+<div class="well" style="margin: 10px;">
+    <!--<div class="row" *ngFor="let l of googleMapsLinks">
+    <iframe width="450" height="250" frameborder="1"
+            style="border:0" src="sanitizer.bypassSecurityTrustResourceUrl({{1}})">
+    </iframe>
+    </div>-->
+    <div class="container">
+        <div class="col-sm-4" *ngFor="let loc of locations">
+        <p><b>{{ loc.name }}</b></p>
+        <p>{{ loc.address }}</p>
+        <p>{{ loc.desc }}</p>
+        </div>
+    </div>
+</div>
