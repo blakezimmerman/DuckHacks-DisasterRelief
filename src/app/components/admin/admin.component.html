@@ -17,11 +17,15 @@
             <th>Name</th>
             <th>Phone</th>
             <th>Email</th>
+            <th>Remove</th>
           </tr>
           <tr *ngFor="let c of contacts">
             <td>{{ c.name }}</td>
             <td>{{ c.phone }}</td>
             <td>{{ c.email }}</td>
+            <td>
+              <span (click)="removeContact(c)" class="glyphicon glyphicon-minus"></span>
+            </td>
           </tr>
         </table>
         <div type="button"  data-toggle="collapse" data-target="#contactForm">
@@ -70,9 +74,13 @@
         <table class="table table-hover">
           <tr>
             <th>Description</th>
+            <th>Remove</th>
           </tr>
           <tr *ngFor="let adv of advisories">
             <td>{{ adv.desc }}</td>
+            <td>
+              <span (click)="removeAdvisory(adv)" class="glyphicon glyphicon-minus"></span>
+            </td>
           </tr>
         </table>
         <div type="button" data-toggle="collapse" data-target="#advisoryForm">
@@ -111,11 +119,15 @@
             <th>Name</th>
             <th>Address</th>
             <th>Description</th>
+            <th>Remove</th>
           </tr>
           <tr *ngFor="let loc of locations">
             <td>{{ loc.name }}</td>
             <td>{{ loc.address }}</td>
             <td>{{ loc.desc }}</td>
+            <td>
+              <span (click)="removeLocation(loc)" class="glyphicon glyphicon-minus"></span>
+            </td>
           </tr>
         </table>
         <div type="button" data-toggle="collapse" data-target="#locationForm">

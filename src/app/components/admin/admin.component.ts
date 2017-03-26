@@ -39,6 +39,11 @@ export class AdminComponent {
     this.phoneNumVal = "";
   }
 
+  removeContact(contact){
+    let x = this.contacts.indexOf(contact)
+    this.contacts.splice(x, x+1);
+  }
+
   addLocation(){
     this.locations.push({ address: this.locAddressVal,
                           desc: this.locDescVal,
@@ -48,9 +53,19 @@ export class AdminComponent {
     this.locDescVal = "";
   }
 
+  removeLocation(location){
+    let x = this.locations.indexOf(location)
+    this.locations.splice(x, x+1);
+  }
+
   addAdvisory(){
     this.advisories.push({ desc: this.advisoryDescVal });
     this.advisoryDescVal = "";
+  }
+
+  removeAdvisory(advisory){
+    let x = this.advisories.indexOf(advisory)
+    this.advisories.splice(x, x+1);
   }
 
   sendBoundVariables(){
