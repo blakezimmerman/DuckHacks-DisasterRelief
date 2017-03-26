@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   templateUrl: 'hub.component.html',
   styleUrls: ['hub.component.css']
 })
+
 export class HubComponent {
   
   constructor(private router: Router, private route: ActivatedRoute) {}
