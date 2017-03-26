@@ -7,10 +7,20 @@
       <h2 class="panel-title">
         <a data-toggle="collapse"
            data-parent="sectionAccordian"
-           href="#contactSection">Contact Information</a>
+           href="#contactSection"
+           *ngIf="boolContacts">Contact Information</a>
+        <a href="#"
+           onclick="return false"
+           *ngIf="!boolContacts"
+           style='color:gray'>Contact Information</a>
+        <label class="pull-right switch">
+          <input type="checkbox" (click)="toggleContacts()" onClick="$('#contactSection').collapse('hide')" *ngIf="boolContacts" checked>
+          <input type="checkbox" (click)="toggleContacts()" *ngIf="!boolContacts" unchecked>
+          <div class="slider round"></div>
+        </label>
       </h2>
     </div>
-    <div id="contactSection" class="panel-collapse collapse in">
+    <div id="contactSection" class="panel-collapse collapse">
       <div class="panel-body">
         <table class="table table-hover">
           <tr>
@@ -66,7 +76,17 @@
       <h2 class="panel-title">
         <a data-toggle="collapse"
            data-parent="sectionAccordian"
-           href="#advisorySection">Advisories</a>
+           href="#advisorySection"
+           *ngIf="boolAdvisories">Advisories</a>
+        <a href="#"
+           onclick="return false"
+           *ngIf="!boolAdvisories"
+           style='color:gray'>Advisories</a>
+        <label class="pull-right switch">
+          <input type="checkbox" (click)="toggleAdvisories()" onClick="$('#advisorySection').collapse('hide')" *ngIf="boolAdvisories" checked>
+          <input type="checkbox" (click)="toggleAdvisories()" *ngIf="!boolAdvisories" unchecked>
+          <div class="slider round"></div>
+        </label>
       </h2>
     </div>
     <div id="advisorySection" class="panel-collapse collapse">
@@ -109,7 +129,17 @@
       <h2 class="panel-title">
         <a data-toggle="collapse"
            data-parent="sectionAccordian"
-           href="#locationSection">Key Locations</a>
+           href="#locationSection"
+           *ngIf="boolLocations">Key Locations</a>
+        <a href="#"
+           onclick="return false"
+           *ngIf="!boolLocations"
+           style='color:gray'>Key Locations</a>
+        <label class="pull-right switch">
+          <input type="checkbox" (click)="toggleLocations()" onClick="$('#locationSection').collapse('hide')" *ngIf="boolLocations" checked>
+          <input type="checkbox" (click)="toggleLocations()" *ngIf="!boolLocations" unchecked>
+          <div class="slider round"></div>
+        </label>
       </h2>
     </div>
     <div id="locationSection" class="panel-collapse collapse">
