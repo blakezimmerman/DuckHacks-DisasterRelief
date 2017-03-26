@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+
+import { AppService } from "../../app.service";
 
 @Component({
   selector: 'admin',
@@ -9,7 +11,7 @@ import { ActivatedRoute } from "@angular/router";
 
 export class AdminComponent {
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private appService: AppService) {}
 
   // Misc attributes
   title = 'Management Page';
@@ -75,12 +77,6 @@ export class AdminComponent {
     this.advisories.splice(x, x+1);
   }
 
-  sendBoundVariables(){
-    console.log(this.locations);
-    console.log(this.contacts);
-    console.log(this.advisories);
-  }
-
   toggleLocations(){
     if(this.boolLocations == 1){
       this.boolLocations = 0;
@@ -105,6 +101,13 @@ export class AdminComponent {
     }
   }
 
+  sendBoundVariables(){
+    console.log(this.locations);
+    console.log(this.contacts);
+    console.log(this.advisories);
+
+    this.appService.updateState({"address":"test","desc":"test","name":"test","phone":"test","email":"test"}) //hardcode test for now
+  }
 }
 
 /*
