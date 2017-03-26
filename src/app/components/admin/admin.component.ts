@@ -10,30 +10,42 @@ export class AdminComponent {
 
   constructor(private route: ActivatedRoute) {}
 
-  title = 'Admin Page!';
+  title = 'Management Page';
   contactInfoTitle = "Contact Info";
   nameVal = "";
   emailVal ="";
   phoneNumVal = "";
-  addressVal = "";
-  addressDescVal = "";
+  locNameVal = "";
+  locAddressVal = "";
+  locDescVal = "";
+  advisoryDescVal = "";
   contacts = [];
   locations = [];
-  addContact()
-  {
-    this.contacts.push({name: this.nameVal, phone: this.phoneNumVal, email: this.emailVal});
+  advisories = [];
+  addContact(){
+    this.contacts.push({ name: this.nameVal,
+                         phone: this.phoneNumVal,
+                         email: this.emailVal });
     this.nameVal = "";
     this.emailVal = "";
     this.phoneNumVal = "";
   }
-  addLocation() 
-  {
-    this.locations.push({address: this.addressVal, desc: this.addressDescVal});
-    this.addressVal = "";
-    this.addressDescVal = "";
+
+  addLocation(){
+    this.locations.push({ address: this.locAddressVal,
+                          desc: this.locDescVal,
+                          name: this.locNameVal });
+    this.locNameVal = "";
+    this.locAddressVal = "";
+    this.locDescVal = "";
   }
-  sendBoundVariables()
-  {
+
+  addAdvisory(){
+    this.advisories.push({ desc: this.advisoryDescVal });
+    this.advisoryDescVal = "";
+  }
+
+  sendBoundVariables(){
     console.log(this.nameVal);
     console.log(this.contactInfoTitle);
     console.log(this.contacts);
