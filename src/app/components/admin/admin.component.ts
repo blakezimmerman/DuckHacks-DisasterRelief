@@ -190,7 +190,7 @@ export class AdminComponent {
                                  "boolContacts":this.boolContacts,
                                  "boolLocations":this.boolLocations,
                                  "boolAdvisories":this.boolAdvisories,
-                                 "boolPrecations":this.boolPrecaution,
+                                 "boolPrecautions":this.boolPrecaution,
                                  "boolSurvivors":this.boolSurvivors,
                                  "siteName":this.siteName,
                                  "lastUpdate":new Date()})
