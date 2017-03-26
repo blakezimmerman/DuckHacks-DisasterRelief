@@ -19,10 +19,10 @@ def launch_the_memes(args):
     t2 = Thread(target=launch_backend_memes)
     t2.start()
     t.start()
-    sp.call(["ng serve"], shell=True)
     with open("state.json", "w") as state_file:
         state = { "initialize" : "true" }
         json.dump(state,state_file)
+    sp.call(["ng serve"], shell=True)
 
 class DuckhacksApp(App):
     def build(self):
