@@ -10,12 +10,14 @@ import { AppService } from "./app.service";
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { HubComponent } from './components/hub/hub.component';
+//import { GoogleMapsComponent } from './google-maps/google-maps.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
-    HubComponent
+    HubComponent,
+    //GoogleMapsComponent
   ],
   imports: [
     BrowserModule,

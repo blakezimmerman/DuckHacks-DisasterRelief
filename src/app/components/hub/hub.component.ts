@@ -41,6 +41,15 @@ export class HubComponent {
       this.boolPrecautions = this.me.boolPrecautions;
       this.precautions = JSON.parse(this.me.precautions);
       this.advisories = JSON.parse(this.me.advisories);
+      if(this.advisories.length > 0)
+      {
+        for(let i = 1; i < this.advisories.length; i++)
+        {
+          console.log(this.advisories[i]);
+          this.advisories[i].msg = "|| " + this.advisories[i].msg;
+          console.log(this.advisories[i]);
+        }
+      }
       this.precautions = JSON.parse(this.me.precautions);
       this.locations = JSON.parse(this.me.locations);
       this.contacts = JSON.parse(this.me.contacts);

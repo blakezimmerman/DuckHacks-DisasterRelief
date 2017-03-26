@@ -124,14 +124,9 @@ export class AdminComponent {
   }
 
   addAdvisory(){
-    if(this.advisories.length > 0)
-    {
-      this.advisories.push({msg: "|| " + this.advisoryMsgVal })
-    }
-    else 
-    {
-      this.advisories.push({ msg: this.advisoryMsgVal });
-    }
+    
+    this.advisories.push({ msg: this.advisoryMsgVal });
+    
     this.advisoryMsgVal = "";
   }
 
