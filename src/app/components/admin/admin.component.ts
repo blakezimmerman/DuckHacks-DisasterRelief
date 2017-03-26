@@ -69,8 +69,9 @@ export class AdminComponent {
   }
 
   sendBoundVariables(){
-    console.log(this.nameVal);
+    console.log(this.locations);
     console.log(this.contacts);
+    console.log(this.advisories);
   }
 }
 
