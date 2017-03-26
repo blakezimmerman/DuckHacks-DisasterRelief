@@ -3,20 +3,25 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AppRoutingModule } from "./app-routing.module";
+
 import { AppComponent } from './app.component';
-import { AdminComponent } from './components/admin.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { HubComponent } from './components/hub/hub.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent
+    AdminComponent,
+    HubComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent, AdminComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
