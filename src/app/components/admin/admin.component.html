@@ -4,8 +4,13 @@
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
-<div class="jumbotron">
-  <h1>{{title}}</h1>
+<div class="adminHeader jumbotron">
+  <button class="back btn" (click)="goBack()">
+    <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;
+  </button>
+  <p class="adminTitle">
+    {{ title }}
+  </p>
 </div>
 <h2>Main Content</h2>
 <div class="well">
