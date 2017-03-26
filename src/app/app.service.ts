@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
+import { Http, Response, Headers, RequestOptions } from "@angular/http";
 import { Observable } from "rxjs";
 import "rxjs/add/operator/map";
 
@@ -8,12 +8,15 @@ export class AppService {
 
     constructor(private http: Http) { }
 
-    getState(): void {
-        
+    getState(): Observable<Object> {
+        return this.http.get("http://localhost:3000/getState").map((res: Response) => res.json());
     }
 
-    updateState(): void {
+    updateState(data: Object): void {
+        let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+        let options = new RequestOptions({ headers: headers }); // Create a request option
 
+        this.http.post("http://localhost:3000/updateState", data, options).subscribe(r=>{});
     }
 
 }
