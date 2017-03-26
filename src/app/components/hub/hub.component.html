@@ -22,7 +22,7 @@
     <div class="row" *ngIf="boolAdvisories">
         <marquee scrollamount="3" id="advisoryTicker" behavior="scroll" direction="left">
             <div style="display: inline"  *ngFor="let adv of advisories">
-                <div class="advisoryBlock">{{ adv.msg }} ||</div>
+                <div class="advisoryBlock">{{ adv.msg }}</div>
             </div>
         </marquee>
     </div>

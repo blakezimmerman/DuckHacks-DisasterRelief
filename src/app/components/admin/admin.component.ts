@@ -106,7 +106,14 @@ export class AdminComponent {
   }
 
   addAdvisory(){
-    this.advisories.push({ msg: this.advisoryMsgVal });
+    if(this.advisories.length > 0)
+    {
+      this.advisories.push({msg: "|| " + this.advisoryMsgVal })
+    }
+    else 
+    {
+      this.advisories.push({ msg: this.advisoryMsgVal });
+    }
     this.advisoryMsgVal = "";
   }
 
@@ -139,7 +146,7 @@ export class AdminComponent {
     }
   }
 
-  togglePrecautions(){
+  togglePrecaution(){
     if(this.boolPrecaution == 1){
       this.boolPrecaution = 0;
     }else{
@@ -164,6 +171,8 @@ export class AdminComponent {
                                  "boolContacts":this.boolContacts,
                                  "boolLocations":this.boolLocations,
                                  "boolAdvisories":this.boolAdvisories,
+                                 "boolPrecations":this.boolPrecaution,
+                                 "boolSurvivors":this.boolSurvivors,
                                  "siteName":this.siteName,
                                  "lastUpdate":new Date()})
   }
