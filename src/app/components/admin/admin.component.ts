@@ -14,6 +14,7 @@ export class AdminComponent {
   constructor(private route: ActivatedRoute, private appService: AppService) {}
 
   // Misc attributes
+  me = null;
   title = 'Management Page';
   siteName = "Disaster Relief Page";
   lastUpdated = "";
@@ -53,6 +54,23 @@ export class AdminComponent {
   precautions = [];
   survivors = [];
 
+  ngOnInit(){
+    this.appService.getState().subscribe(data => {
+      this.me = data;
+      console.log(this.me.lastUpdate);
+      this.boolAdvisories = this.me.boolAdvisories;
+      this.boolSurvivors = this.me.boolSurvivors;
+      this.boolContacts = this.me.boolContacts;
+      this.boolLocations = this.me.boolLocations;
+      this.boolPrecautions = this.me.boolPrecautions;
+      this.advisories = JSON.parse(this.me.advisories);
+      this.locations = JSON.parse(this.me.locations);
+      this.contacts = JSON.parse(this.me.contacts);
+      this.survivors = JSON.parse(this.me.survivors);
+      this.siteName = this.me.siteName;
+      this.lastUpdate = this.me.lastUpdate;
+    })
+
   addContact(){
     this.contacts.push({ name: this.nameVal,
                          phone: this.phoneNumVal,
@@ -63,7 +81,7 @@ export class AdminComponent {
   }
 
   removeContact(contact){
-    let x = this.contacts.indexOf(contact)
+    let x = this.contacts.indexOf(contact);
     this.contacts.splice(x, x+1);
   }
 
@@ -101,7 +119,7 @@ export class AdminComponent {
   }
 
   removeLocation(location){
-    let x = this.locations.indexOf(location)
+    let x = this.locations.indexOf(location);
     this.locations.splice(x, x+1);
   }
 
