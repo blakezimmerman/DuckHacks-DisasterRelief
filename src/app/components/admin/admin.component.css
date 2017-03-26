@@ -89,6 +89,12 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-input {
+label {
   display: inline-block;
+  width: 140px;
+  text-align: left;
+}
+
+.glyphicon-question-sign {
+  font-size: 20px;
 }
