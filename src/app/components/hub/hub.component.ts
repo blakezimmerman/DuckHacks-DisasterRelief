@@ -4,6 +4,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { AppService } from "../../app.service";
 import { Http, Response, Headers, RequestOptions } from "@angular/http";
 
+import { AdvisoriesComponent } from "../advisories/advisories.component";
+
 @Component({
   selector: 'hub',
   templateUrl: 'hub.component.html',
@@ -28,8 +30,8 @@ export class HubComponent {
   survivors = null;
   siteName = null;
   lastUpdate = null; 
-  ngOnInit()
-  {
+  
+  ngOnInit() {
     this.appService.getState().subscribe(data => {
       this.me = data;
       //this.furtherTesting = data.lastUpdate;
@@ -58,6 +60,7 @@ export class HubComponent {
       this.lastUpdate = this.me.lastUpdate;
     })
   }
+
   loadAdmin() {
      this.router.navigate(["/admin"]);
   }

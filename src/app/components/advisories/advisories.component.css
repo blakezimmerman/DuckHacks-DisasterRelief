@@ -1,0 +1,9 @@
+#advisoryTicker{
+    background-color: black;
+    color: red;
+    font-size: x-large;
+}
+
+.advisoryBlock{
+    display: inline;
+}
