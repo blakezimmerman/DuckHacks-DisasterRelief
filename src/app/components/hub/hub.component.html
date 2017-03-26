@@ -20,29 +20,30 @@
         <advisories [advisories]="advisories"></advisories>
     </div>
 
-    <div class="hubItems">
-        <div *ngIf="boolContacts">
-            <contacts [contacts]="contacts"></contacts>
-        </div>
 
-        <div *ngIf="boolPrecautions">
-            <precautions [precautions]="precautions"></precautions>
-        </div>
+    <div *ngIf="boolContacts">
+        <contacts [contacts]="contacts"></contacts>
+    </div>
 
-        <div *ngIf="boolLocations">
-            <locations [locations]="locations"></locations>
-        </div>
 
-        <div *ngIf="boolSurvivors">
-            <survivors [survivors]="survivors"></survivors>
-        </div>
+    <div *ngIf="boolPrecautions">
+        <precautions [precautions]="precautions"></precautions>
+    </div>
 
-        <div class="row">
-            <br>
-            <footer class="col-md-12" style="text-align: center">
-                Last Updated: {{ lastUpdate }}
-            </footer>
-        </div>
+
+    <div *ngIf="boolLocations">
+        <locations [locations]="locations"></locations>
+    </div>
+
+
+    <div *ngIf="boolSurvivors">
+        <survivors [survivors]="survivors"></survivors>
+    </div>
+
+    <div class="row">
+        <footer class="col-md-12" style="text-align: center">
+            Last Updated: {{ lastUpdate }}
+        </footer>
     </div>
   </body>
 </html>

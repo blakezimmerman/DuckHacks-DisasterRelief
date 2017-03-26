@@ -6,8 +6,6 @@ import { Http, Response, Headers, RequestOptions } from "@angular/http";
 
 import { AdvisoriesComponent } from "../advisories/advisories.component";
 
-declare var moment: any;
-
 @Component({
   selector: 'hub',
   templateUrl: 'hub.component.html',
@@ -59,7 +57,7 @@ export class HubComponent {
       this.contacts = JSON.parse(this.me.contacts);
       this.survivors = JSON.parse(this.me.survivors);
       this.siteName = this.me.siteName;
-      this.lastUpdate = moment(this.me.lastUpdate).format("dddd, MMMM Do YYYY, h:mm:ss A ZZ");
+      this.lastUpdate = this.me.lastUpdate;
     })
   }
 
