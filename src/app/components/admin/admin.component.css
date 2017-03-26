@@ -15,6 +15,11 @@
 
 }
 
+.adminBody {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 .back {
     background-color: transparent;
     font-size: 30px;
