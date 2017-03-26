@@ -19,6 +19,7 @@ export class HubComponent {
   boolContacts = null;
   boolLocations = null;
   boolPrecautions = null;
+  precautions = null;
   title = null;
   advisories = null;
   precautions = null;
@@ -39,6 +40,7 @@ export class HubComponent {
       this.boolContacts = this.me.boolContacts;
       this.boolLocations = this.me.boolLocations;
       this.boolPrecautions = this.me.boolPrecautions;
+      this.precautions = JSON.parse(this.me.precautions);
       this.advisories = JSON.parse(this.me.advisories);
       this.precautions = JSON.parse(this.me.precautions);
       this.locations = JSON.parse(this.me.locations);

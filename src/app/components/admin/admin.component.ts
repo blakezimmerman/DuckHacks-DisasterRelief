@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 import { AppService } from "../../app.service";
 
@@ -11,7 +11,7 @@ import { AppService } from "../../app.service";
 
 export class AdminComponent {
 
-  constructor(private route: ActivatedRoute, private appService: AppService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private appService: AppService) {}
 
   // Misc attributes
   me = null;
@@ -193,6 +193,10 @@ export class AdminComponent {
                                  "boolSurvivors":this.boolSurvivors,
                                  "siteName":this.siteName,
                                  "lastUpdate":new Date()})
+  }
+
+  goBack() {
+     this.router.navigate(["/"]);
   }
 }
 
