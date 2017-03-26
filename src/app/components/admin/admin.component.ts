@@ -16,6 +16,7 @@ export class AdminComponent {
   // Misc attributes
   title = 'Management Page';
   siteName = "Disaster Relief Page";
+  lastUpdated = "";
 
   // Activation attributes
   boolContacts = 1
@@ -33,7 +34,7 @@ export class AdminComponent {
   locDescVal = "";
 
   // Advisory attributes
-  advisoryDescVal = "";
+  advisoryMsgVal = "";
 
   // Entity arrays
   contacts = [];
@@ -69,8 +70,8 @@ export class AdminComponent {
   }
 
   addAdvisory(){
-    this.advisories.push({ desc: this.advisoryDescVal });
-    this.advisoryDescVal = "";
+    this.advisories.push({ msg: this.advisoryMsgVal });
+    this.advisoryMsgVal = "";
   }
 
   removeAdvisory(advisory){
@@ -113,7 +114,8 @@ export class AdminComponent {
                                  "boolContacts":this.boolContacts,
                                  "boolLocations":this.boolLocations,
                                  "boolAdvisories":this.boolAdvisories,
-                                 "siteName":this.siteName})
+                                 "siteName":this.siteName,
+                                 "lastUpdate":new Date()})
   }
 }
 

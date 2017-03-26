@@ -94,11 +94,11 @@
         <a data-toggle="collapse"
            data-parent="sectionAccordian"
            href="#advisorySection"
-           *ngIf="boolAdvisories">Advisories</a>
+           *ngIf="boolAdvisories">Advisory Ticker</a>
         <a href="#"
            onclick="return false"
            *ngIf="!boolAdvisories"
-           style='color:gray'>Advisories</a>
+           style='color:gray'>Advisory Ticker</a>
         <label class="pull-right switch">
           <input type="checkbox" (click)="toggleAdvisories()" onClick="$('#advisorySection').collapse('hide')" *ngIf="boolAdvisories" checked>
           <input type="checkbox" (click)="toggleAdvisories()" *ngIf="!boolAdvisories" unchecked>
@@ -110,11 +110,11 @@
       <div class="panel-body">
         <table class="table table-hover">
           <tr>
-            <th>Description</th>
+            <th>Message</th>
             <th>Remove</th>
           </tr>
           <tr *ngFor="let adv of advisories">
-            <td>{{ adv.desc }}</td>
+            <td>{{ adv.msg }}</td>
             <td>
               <span (click)="removeAdvisory(adv)" class="glyphicon glyphicon-minus"></span>
             </td>
@@ -128,7 +128,7 @@
             <div class="row">
               <li>
                 <label>Message: </label>
-                <input [(ngModel)]="advisoryDescVal">
+                <input [(ngModel)]="advisoryMsgVal">
               </li>
             </div>
           </ul>
