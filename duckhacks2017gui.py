@@ -9,7 +9,7 @@ from threading import Thread
 
 def launch_web_memes():
     time.sleep(10)
-    webbrowser.open("http://localhost:4200")
+    webbrowser.open("http://localhost:4200/admin")
 
 def launch_the_memes(args):
     t = Thread(target=launch_web_memes)
