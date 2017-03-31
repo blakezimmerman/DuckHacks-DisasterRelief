@@ -1,28 +1,11 @@
-# Duckhax
+# Disaster Relief Info Hub (DuckHacks 2017 Project)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+This project was put together in 24 hours by Blake Zimmerman, Connor Zapfel, and Matt Colozzo for the Stevens DuckHacks 2017 Hackathon.
 
-## Development server
+This project aims to be an easy way for a disaster relief team to spin up a full web stack for sharing information about a disaster after it occurs. This stack includes a simple python gui for deploying the web stack, and the web stack itself uses Angular for its frontend and Node.js for its backend. The front end contains a configuration page where the user can add various types of information about the disaster and then a dashboard will dynamically populate itself with components based on what the user inputted to the configuration page.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Setup
 
-## Code scaffolding
+Be sure to have Python 2, Kivy, and NPM installed. Then in the root directy of the project run `npm install` to install the rest of the web dependencies.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Once all of the dependencies are installed, run `python duckhacks2017gui.py` from the root directory of the project.
